@@ -5,7 +5,7 @@ const app = express();
 
 
    app.use(express.json());
-   
+
 
 
    function mid1(req, res, next) {
@@ -44,6 +44,14 @@ const app = express();
         message: "world"
     });
   });
+
+ 
+  app.all("*", (req, res) => {
+    return res.status(404).json({
+      message: "not found"
+    });
+  });
+  
 
 app.listen(3000,()=>
 {
